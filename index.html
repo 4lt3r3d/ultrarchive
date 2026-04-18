@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ULTRARCHIVE — The Ultimate Web Archiving Tool</title>
+  <meta name="description" content="Submit a URL once, preserve it across 12+ web archive services in one click." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ============ HEADER ============ -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-text">ULTR<span class="accent">ARCHIVE</span></span>
+        <span class="badge">BETA</span>
+      </div>
+      <div class="tagline">// submit once. preserved everywhere. no page left behind.</div>
+      <nav class="nav">
+        <button class="nav-btn active" data-tab="archive">⚡ ARCHIVE</button>
+        <button class="nav-btn" data-tab="search">🔍 SEARCH</button>
+      </nav>
+    </header>
+
+    <!-- ============ ARCHIVE TAB ============ -->
+    <section class="tab-panel active" id="tab-archive">
+      <div class="input-zone">
+        <div class="input-row">
+          <input class="input" id="urlInput" type="url" placeholder="https://paste-any-url-here.com/..." />
+          <button class="btn-primary" id="goBtn">⚡ Archive It</button>
+        </div>
+        <div class="stats-row">
+          <div class="stat">SERVICES: <b class="s-total" id="sTotal">0</b></div>
+          <div class="stat">SAVED: <b class="s-ok" id="sOk">0</b></div>
+          <div class="stat">IN PROGRESS: <b class="s-pending" id="sPend">0</b></div>
+          <div class="stat">NEED LOGIN: <b class="s-login" id="sLogin">0</b></div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+
+      <div class="log-section">
+        <div class="log-title">// archive status log</div>
+        <div id="svcList">
+          <div class="empty">Paste a URL above and hit ⚡ Archive It to begin</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEARCH TAB ============ -->
+    <section class="tab-panel" id="tab-search">
+      <div class="input-zone">
+        <div class="input-row">
+          <input class="input" id="searchInput" type="text" placeholder="Paste a URL or search your history..." />
+          <button class="btn-primary" id="searchBtn">🔍 Search</button>
+        </div>
+        <div class="search-hint">// paste a full URL to check archive coverage • type a keyword to filter your history</div>
+      </div>
+
+      <div class="log-section">
+        <div id="searchResults"></div>
+        <div class="log-title" id="historyTitle">// your archive history</div>
+        <div id="historyList">
+          <div class="empty">No archived URLs yet. Head to the Archive tab to start!</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      ultrarchive — submit to 12+ services in one click — no tabs opened — your browser stays clean
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
