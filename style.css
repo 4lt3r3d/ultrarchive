@@ -98,10 +98,7 @@ html, body {
   padding: 24px 32px 20px;
 }
 
-.input-row {
-  display: flex;
-  gap: 10px;
-}
+.input-row { display: flex; gap: 10px; }
 
 .input {
   flex: 1;
@@ -204,9 +201,9 @@ html, body {
 /* =================== SERVICE ROW =================== */
 .svc-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: 1px solid #111118;
   flex-wrap: wrap;
 }
@@ -216,6 +213,7 @@ html, body {
   width: 24px;
   text-align: center;
   flex-shrink: 0;
+  padding-top: 2px;
 }
 
 .svc-info {
@@ -236,13 +234,6 @@ html, body {
   margin-top: 1px;
 }
 
-.svc-login-note {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  color: #f97316;
-  margin-top: 3px;
-}
-
 .svc-status {
   display: flex;
   align-items: center;
@@ -258,14 +249,16 @@ html, body {
   border-radius: 99px;
   font-weight: 700;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 .pill-idle  { background: #15151e; color: #3a3858; border: 1px solid #2a2a3a; }
 .pill-wait  { background: #1a120a; color: #f97316; border: 1px solid #3a2a14; animation: pulse 1s infinite; }
 .pill-ok    { background: #082916; color: #22d3a0; border: 1px solid #0f4024; }
+.pill-warn  { background: #1a140a; color: #c4a04a; border: 1px solid #3a2e14; }
 .pill-login { background: #100e1a; color: #7c6af0; border: 1px solid #2a2460; }
 .pill-err   { background: #1a080a; color: #f43f5e; border: 1px solid #3a1020; }
-.pill-miss  { background: #1a140a; color: #c4a04a; border: 1px solid #3a2e14; }
+.pill-miss  { background: #120a0a; color: #6a3a3a; border: 1px solid #281414; }
 
 @keyframes pulse { 0%, 100% { opacity: 1 } 50% { opacity: .5 } }
 
@@ -282,14 +275,24 @@ html, body {
 
 @keyframes spin { to { transform: rotate(360deg) } }
 
-/* =================== LINK BLOCK =================== */
+/* =================== LINK BLOCKS =================== */
 .link-block {
-  margin-top: 6px;
+  margin-top: 8px;
   padding: 10px 14px;
   background: #0e0e17;
   border-radius: 8px;
   border: 1px solid #1e1e2a;
   width: 100%;
+}
+
+.link-block.warn {
+  background: #15100a;
+  border-color: #3a2e14;
+}
+
+.link-block.err {
+  background: #15090a;
+  border-color: #3a1020;
 }
 
 .link-label {
@@ -298,6 +301,9 @@ html, body {
   color: #3a3858;
   margin-bottom: 4px;
 }
+
+.link-block.warn .link-label { color: #c4a04a; }
+.link-block.err .link-label { color: #f43f5e; }
 
 .archive-url {
   font-family: 'Space Mono', monospace;
@@ -308,7 +314,47 @@ html, body {
   text-decoration: none;
 }
 
+.link-block.warn .archive-url { color: #c4a04a; }
+.link-block.err .archive-url { color: #f43f5e; }
+
 .archive-url:hover { text-decoration: underline; }
+
+/* =================== SIGNUP / MANUAL BUTTONS =================== */
+.action-row-mini {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-signup, .btn-manual {
+  background: transparent;
+  border: 1px solid #2a2460;
+  color: #7c6af0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .15s;
+}
+
+.btn-signup:hover {
+  background: #100e1a;
+  border-color: #7c6af0;
+}
+
+.btn-manual {
+  border-color: #2a2a3a;
+  color: #c8c4f0;
+}
+
+.btn-manual:hover {
+  border-color: #f97316;
+  color: #f97316;
+}
 
 /* =================== EMPTY / FOOTER =================== */
 .empty {
@@ -386,8 +432,9 @@ html, body {
   border: 1px solid #1a1a24;
 }
 
-.coverage-item.has   { border-color: #0f4024; }
-.coverage-item.missing { border-color: #3a2e14; }
+.coverage-item.has      { border-color: #0f4024; }
+.coverage-item.partial  { border-color: #3a2e14; }
+.coverage-item.missing  { border-color: #281414; }
 
 .coverage-item-name {
   font-size: 12px;
@@ -439,6 +486,7 @@ html, body {
   gap: 14px;
   padding: 12px 0;
   border-bottom: 1px solid #111118;
+  flex-wrap: wrap;
 }
 
 .hist-info { flex: 1; min-width: 0; }
@@ -468,6 +516,7 @@ html, body {
   border: 1px solid #0f4024;
   border-radius: 99px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 /* =================== RESPONSIVE =================== */
